@@ -1,6 +1,6 @@
 package SLL;
 import java.util.*;
-public class Zad3 {
+public class Zad5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
@@ -11,18 +11,23 @@ public class Zad3 {
         }
         int M = sc.nextInt();
         System.out.println(lista);
-        findEqualOneAndAddTarger(lista,M);
-        System.out.println(lista);
+        findAndPutOnEnd(lista,M , N);
     }
-    public static void findEqualOneAndAddTarger(SLL<String> lista, int M) {
-        SLLNode<String> temp = lista.getFirst();
-        while (temp != null) {
 
+    public static void findAndPutOnEnd(SLL<String> lista, int M ,int N) {
+        SLLNode<String> temp = lista.getFirst();
+        SLL<String> tempLista = new SLL<String>();
+        while (temp != null) {
             if (temp.element.length()==M){
-              lista.insertAfter( "Target" , temp);
-              temp=temp.succ;
+                tempLista.insertLast(temp.element);
+                lista.delete(temp);
             }
             temp=temp.succ;
+        }
+        if (tempLista.size()!=0) {
+            System.out.println(lista + "->" + tempLista);
+        }else {
+            System.out.println(lista);
         }
     }
 }
