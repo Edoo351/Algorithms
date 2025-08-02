@@ -1,4 +1,4 @@
-package SLL;
+package HashTabels;
 public class SLL<E> {
     private SLLNode<E> first;
 
