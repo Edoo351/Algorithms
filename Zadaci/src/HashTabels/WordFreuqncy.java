@@ -591,7 +591,7 @@ class findPairse {
 }
 
 
-class Main {
+class Maaaain {
 
     // WRITE LONGESTCONSECUTIVESEQUENCE METOHOD HERE //
     //                                               //
