@@ -34,7 +34,7 @@ public class HashTabeliZad4 {
 
         @Override
         public String toString() {
-            return name+ipAdress;
+            return name+" "+ipAdress+" "+surname+" "+ipAdress+" "+cena;
         }
         public int compareTo(Person o) {
             return name.compareTo(o.name);
@@ -77,8 +77,10 @@ public class HashTabeliZad4 {
             Person rich = null;
             int counter=0;
             for (Person person : listPerson) {
-                String perNet = parts2[0]+"."+parts2[1]+"."+parts2[2]+".";
-                if (perNet.hashCode() == network && person.budget>person.cena){
+                String[] parts3 = person.ipAdress.split("\\.");
+               String perNet = parts3[0]+"."+parts3[1]+"."+parts3[2]+".";
+               int newIp= perNet.hashCode();
+                if (newIp == network && person.budget>=person.cena){
                     counter++;
                     if (rich == null || person.cena>rich.cena){
                         rich = person;
