@@ -3,7 +3,7 @@ package HashTabels;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class HashTabeliZad4 {
+public class HashTabeliZad5 {
     static  class Person implements Comparable<Person> {
         String name;
         String surname;
@@ -28,13 +28,13 @@ public class HashTabeliZad4 {
         @Override
         public int hashCode() {
             String[] parts = ipAdress.split("\\.");
-            String hash = parts[0] +"."+parts[1]+"."+parts[2]+".";
+            String hash = parts[0] +"."+parts[1]+"."+parts[2];
             return hash.hashCode();
         }
 
         @Override
         public String toString() {
-            return name+" "+ipAdress+" "+surname+" "+ipAdress+" "+cena;
+            return name+" "+surname+" with salary "+budget+" from address "+ipAdress+" who spent "+cena;
         }
         public int compareTo(Person o) {
             return name.compareTo(o.name);
@@ -72,13 +72,13 @@ public class HashTabeliZad4 {
             String[] parts = string.split("\\s+");
             String ipAdress = parts[3];
             String[] parts2 = parts[3].split("\\.");
-            String has = parts2[0]+"."+parts2[1]+"."+parts2[2]+".";
+            String has = parts2[0]+"."+parts2[1]+"."+parts2[2];
             int network =has.hashCode();
             Person rich = null;
             int counter=0;
             for (Person person : listPerson) {
                 String[] parts3 = person.ipAdress.split("\\.");
-               String perNet = parts3[0]+"."+parts3[1]+"."+parts3[2]+".";
+                String perNet = parts3[0]+"."+parts3[1]+"."+parts3[2];
                int newIp= perNet.hashCode();
                 if (newIp == network && person.budget>=person.cena){
                     counter++;
@@ -87,6 +87,9 @@ public class HashTabeliZad4 {
                     }
                 }
             }
+            System.out.println("IP network: "+has+" has the following number of users:");
+            System.out.println(counter);
+            System.out.println("The user who spent the most from that network is:");
             System.out.println(rich);
         }
 
